@@ -1,0 +1,26 @@
+{
+  "id": "uidPagination",
+  "name": "Pagination",
+  "template": "@template.tpl.html",
+  "custom": true,
+  "properties": [{
+    "label": "Page size",
+    "help": "number of items to display per page",
+    "name": "pageSize",
+    "bond": "variable"
+  }, {
+    "label": "Total items",
+    "name": "total",
+    "bond": "variable"
+  }, {
+    "label": "Selected page",
+    "name": "currentPage",
+    "bond": "variable"
+  }],
+  "assets": [{
+    "name": "ui-bootstrap.min.js",
+    "type": "js",
+    "order": 0
+  }],
+  "requiredModules": ["ui.bootstrap"]
+}
