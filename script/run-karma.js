@@ -20,7 +20,7 @@ function runKarma(opt, widget) {
 
   opt.singleRun = !opt.watch;
   opt.autoWatch = opt.watch;
-  opt.frameworks = ['jasmine', 'browserify'];
+  opt.frameworks = ['jasmine-jquery', 'jasmine'];
   opt.files = [
     'node_modules/angular/angular.js',
     'node_modules/angular-mocks/angular-mocks.js',
@@ -29,12 +29,13 @@ function runKarma(opt, widget) {
     .concat(getJsAssets(widget))
     .concat([
       path.join('dist', widget, 'resources/*.js'),
+      { pattern: path.join('src/widgets', widget, '**/*.json'),
+        watched:  true,
+        served:   true,
+        included: false },
       path.join('src/widgets', widget, '**/*.spec.js')
     ]);
   opt.browsers = ['PhantomJS'];
-  opt.preprocessors = {
-    'src/**/*.spec.js': ['browserify']
-  };
 
   return new Promise(function (resolve, reject) {
     new Karma(opt, function (exitCode) {

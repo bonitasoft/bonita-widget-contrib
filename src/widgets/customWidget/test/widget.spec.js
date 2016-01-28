@@ -4,7 +4,10 @@ describe('Widget', function () {
 
   // add both, module required by the widget and locally defined ones
   beforeEach(function () {
-    (require('../widget.json').requiredModules || []).concat([
+    jasmine.getJSONFixtures().fixturesPath = 'base/src/widgets/customWidget/';
+    loadJSONFixtures('widget.json');
+    
+    (getJSONFixture('widget.json').requiredModules || []).concat([
       'bonitasoft.ui.widgets',
       'bonitasoft.ui.filters'
     ]).forEach(function (module) {
