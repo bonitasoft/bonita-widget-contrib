@@ -11,9 +11,9 @@ function logDeploymentResult(err, body) {
   }
 
   var widget = JSON.parse(body);
-  if (widget.uuid) {
-    gutil.log(gutil.colors.red('Failed to deploy widget \'' + gutil.colors.cyan(widget.element.name) + '\' because it already exist.'));
-    gutil.log(gutil.colors.red('Force update using --force option.'));
+  if (widget.status !== 'imported') {
+    gutil.log(gutil.colors.red('Failed to deploy widget \'' + gutil.colors.cyan(widget.element.name) + '\' reason :' + widget.status));
+    gutil.log(gutil.colors.red('Try to force update using --force option if reason is \'conflict\'.'));
     return;
   }
 
