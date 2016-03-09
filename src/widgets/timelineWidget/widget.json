@@ -1,0 +1,111 @@
+{
+  "id": "timelineWidget",
+  "name": "TIMELINE",
+  "template": "@template.tpl.html",
+  "controller": "@controller.ctrl.js",
+  "custom": true,
+  "properties": [
+    {
+      "label": "Events",
+      "name": "events",
+      "bond": "expression",
+      "help": "A list of events to display on the Timeline. An event is a JSON object. There is no constraint on the structure of the object. You can define in other properties how to display an event based on the structure of the JSON object you provide here. If the list of events is empty then the 'No Event Title' and 'No Event Content' will be displayed."
+    },
+    {
+      "label": "No Events Title",
+      "name": "noEventsTitle",
+      "bond": "expression",
+      "defaultValue": "No Events yet.",
+      "help": "In case of an empty list of event provided in the Events property, a fake event will be displayed in the TimeLine with the following title."
+    },
+    {
+      "label": "No Events Content",
+      "name": "noEventsContent",
+      "bond": "expression",
+      "defaultValue": "Nothing noticeable happened yet... But it surely will come!",
+      "help": "In case of an empty list of event provided in the Events property, a fake event will be displayed in the TimeLine with the following content."
+    },
+    {
+      "label": "Events Title Expression",
+      "name": "eventsTitleExpression",
+      "bond": "expression",
+      "caption": "e.g. '#' + event.id + ' ' + event.name",
+      "help": "Expression that will be executed to create the title for each event of the Timeline. Use the 'event' placeholder in the expression to refer to the current event to display, e.g., event.attribute"
+    },
+    {
+      "label": "Events Content Expression",
+      "name": "eventsContentExpression",
+      "bond": "expression",
+      "help": "Expression that will be executed to create the content for each event of the Timeline. Use the 'event' placeholder in the expression to refer to the current event to display, e.g., event.attribute"
+    },
+    {
+      "label": "Events Time Expression",
+      "name": "eventsTimeExpression",
+      "bond": "expression",
+      "help": "Expression that will be executed to create the time (when the event occurred) for each event of the Timeline. Use the 'event' placeholder in the expression to refer to the current event to display, e.g., event.attribute"
+    },
+    {
+      "label": "Events Time format",
+      "name": "eventsTimeAttributeFormat",
+      "bond": "expression",
+      "defaultValue": "medium",
+      "caption":"e.g. medium, yyyy-MM-dd HH:mm:ss. <a href='https://docs.angularjs.org/api/ng/filter/date' target='_blank'>More examples</a>",
+      "help": "Format to apply on the Event Time attribute and the Origin Time attribute."
+    },
+    {
+      "label": "Events Author Expression",
+      "name": "eventsAuthorExpression",
+      "bond": "expression",
+      "caption":"e.g. event.author.firstname + ' ' + event.author.lastname",
+      "help": "Expression that will be executed to create the author description for each event of the Timeline. Use the 'event' placeholder in the expression to refer to the current event to display, e.g., event.attribute"
+    },
+    {
+      "label": "Origin",
+      "name": "origin",
+      "bond": "expression",
+      "help": "The initial event that represents the origin of the Timeline."
+    },
+    {
+      "label": "Origin Title Expression",
+      "name": "originTitleExpression",
+      "bond": "expression",
+      "help": "Expression that will be executed to create the origin's title of Timeline. Use the 'origin' placeholder in the expression to refer to the event to display, e.g., origin.attribute"
+    },
+    {
+      "label": "Origin Content Expression",
+      "name": "originContentExpression",
+      "bond": "expression",
+      "help": "Expression that will be executed to create the origin's content of Timeline. Use the 'origin' placeholder in the expression to refer to the event to display, e.g., origin.attribute"
+    },
+    {
+      "label": "Origin Time Expression",
+      "name": "originTimeExpression",
+      "bond": "expression",
+      "help": "Expression that will be executed to create the origin's time of Timeline. Use the 'origin' placeholder in the expression to refer to the event to display, e.g., origin.attribute. The 'Event Time Format' will be applied on this expression."
+    },
+    {
+      "label": "Origin Author",
+      "name": "originAuthorExpression",
+      "bond": "expression",
+      "caption":"e.g. origin.initiator.firstname + ' ' + origin.initiator.lastname",
+      "help": "Expression that will be executed to create the author description for the origin event of the Timeline. Use the 'origin' placeholder in the expression to refer to the current event to display, e.g., origin.attribute"
+    }
+
+
+  ],
+  "assets": [
+    {
+      "name": "angular-timeline.css",
+      "type": "css"
+    },
+    {
+      "name": "style.css",
+      "type": "css"
+    },
+    {
+      "name": "angular-timeline.js",
+      "type": "js"
+    }
+  ],
+  "requiredModules": ["angular-timeline"]
+}
