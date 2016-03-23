@@ -62,7 +62,7 @@ gulp.task('deploy:watch', ['deploy'], function () {
   return gulp.watch(join('src/widgets', argv.widget, '**/*'), ['deploy']);
 });
 
-gulp.task('default', ['zip', 'test']);
+gulp.task('default', ['zip']);
 
 function getDeploymentArguments() {
   return yargs

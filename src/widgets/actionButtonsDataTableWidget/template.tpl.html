@@ -1,0 +1,52 @@
+<div class="table-responsive">
+    <table bonitable
+           sort-options="ctrl.sortOptions"
+           on-sort="ctrl.sortHandler()"
+           class="table table-striped" ng-class="{'table-hover': ctrl.isSelectable()}">
+        <thead>
+        <tr>
+            <th ng-repeat="header in properties.headers">
+                <div ng-if="ctrl.isColumnSortable($index)" bo-sorter="{{properties.columnsKey[$index]}}">
+                    {{ header | uiTranslate }}
+                </div>
+                <div ng-if="!ctrl.isColumnSortable($index)">
+                    {{ header | uiTranslate }}
+                </div>
+            </th>
+            <th ng-if="ctrl.hasActions()" data-noresize="" class="table-column-xs table-header-actions ng-binding">Actions</th>
+        </tr>
+        </thead>
+        <tbody ng-if="ctrl.hasMultiColumns()">
+        <tr ng-repeat="row in ctrl.results" ng-click="ctrl.selectRowHandler(row)"
+            ng-class="{'info': row === properties.selectedRow}">
+            <td ng-repeat="column in properties.columnsKey track by $index">
+                {{ $eval(column, row) | uiTranslate }}
+            </td>
+            <td ng-if="ctrl.hasActions()" class="application-actions">
+                <button ng-repeat="action in properties.actions track by $index"
+                        class="glyphicon glyphicon-{{action.glyphicon}} btn-action-{{action.name}}"
+                        aria-label="{{action.name}}"
+                        title="{{action.name}}"
+                        ng-click="ctrl.action(action.name)">
+                </button>
+            </td>
+        </tr>
+        </tbody>
+        <tbody ng-if="!ctrl.hasMultiColumns()">
+        <tr ng-repeat="row in ctrl.results" ng-click="ctrl.selectRowHandler(row)"
+            ng-class="{'info': row === properties.selectedRow}">
+            <td> {{ row | uiTranslate }}</td>
+        </tr>
+        <td ng-if="ctrl.hasActions()" class="application-actions">
+            <button ng-repeat="action in properties.actions track by $index"
+                    class="glyphicon glyphicon-{{action.glyphicon}} btn-action-{{action.name}}"
+                    aria-label="{{action.name}}"
+                    title="{{action.name}}"
+                    ng-click="ctrl.action(action.name)">
+            </button>
+        </td>
+        </tbody>
+    </table>
+    <pagination total-items="ctrl.pagination.total" items-per-page="properties.pageSize" direction-links="false" boundary-links="false"
+                ng-model="ctrl.pagination.currentPage" ng-change="ctrl.paginationHandler()"></pagination>
+</div>
