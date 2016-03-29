@@ -27,7 +27,7 @@
                         class="glyphicon glyphicon-{{action.glyphicon}} btn-action-{{action.name}}"
                         aria-label="{{action.name}}"
                         title="{{action.name}}"
-                        ng-click="ctrl.action(action.name)">
+                        ng-click="action.handler(row)">
                 </button>
             </td>
         </tr>
@@ -36,15 +36,15 @@
         <tr ng-repeat="row in ctrl.results" ng-click="ctrl.selectRowHandler(row)"
             ng-class="{'info': row === properties.selectedRow}">
             <td> {{ row | uiTranslate }}</td>
+            <td ng-if="ctrl.hasActions()" class="application-actions">
+                <button ng-repeat="action in properties.actions track by $index"
+                        class="glyphicon glyphicon-{{action.glyphicon}} btn-action-{{action.name}}"
+                        aria-label="{{action.name}}"
+                        title="{{action.name}}"
+                        ng-click="action.handler(row)">
+                </button>
+            </td>
         </tr>
-        <td ng-if="ctrl.hasActions()" class="application-actions">
-            <button ng-repeat="action in properties.actions track by $index"
-                    class="glyphicon glyphicon-{{action.glyphicon}} btn-action-{{action.name}}"
-                    aria-label="{{action.name}}"
-                    title="{{action.name}}"
-                    ng-click="ctrl.action(action.name)">
-            </button>
-        </td>
         </tbody>
     </table>
     <pagination total-items="ctrl.pagination.total" items-per-page="properties.pageSize" direction-links="false" boundary-links="false"

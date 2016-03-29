@@ -2,14 +2,6 @@ function ActionButtonsDataTableWidgetController($scope, $http, $log, $filter, $i
 
   var vm = this;
 
-  vm.action = action;
-
-  function action(name) {
-    var service = $injector.get($scope.properties.actions[name].service);
-    var fn = service[$scope.properties.actions[name].method];
-    $scope.properties.actions[name].output = fn.apply(service, $scope.properties.actions[name].arguments);
-  }
-
   Object.defineProperty(vm, 'jsonData', {
     'get': function () {
       //undefined for filter expression allows to bypass the null value issue that
@@ -44,7 +36,7 @@ function ActionButtonsDataTableWidgetController($scope, $http, $log, $filter, $i
   };
 
   this.hasActions = function () {
-    return JSON.stringify($scope.properties.actions) !== JSON.stringify({});
+    return $scope.properties.isBound('actions');
   };
 
   /**
