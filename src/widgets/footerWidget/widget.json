@@ -1,0 +1,17 @@
+{
+  "id": "footerWidget",
+  "name": "Footer",
+  "template": "@template.tpl.html",
+  "controller": "@controller.ctrl.js",
+  "custom": true,
+  "properties": [
+    {
+      "label": "Text",
+      "name": "text",
+      "type": "text",
+      "defaultValue": "by Living Applications from <strong>UI Design</strong>",
+      "bond": "expression"
+    }
+  ],
+  "assets": []
+}
