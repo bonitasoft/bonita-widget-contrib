@@ -1,0 +1,57 @@
+{
+  "designerVersion": "1.2.13",
+  "id": "customPrintButton",
+  "name": "printButton",
+  "lastUpdate": 1455034971200,
+  "template": "@template.tpl.html",
+  "controller": "@controller.ctrl.js",
+  "icon": "<svg xmlns='http://www.w3.org/2000/svg' width='100' height='50' viewBox='0 0 100 50'><path d='M35.614 43.973h26.923v-7.5H35.614v7.5zm0-18.75h26.923v-11.25H57.73q-1.203 0-2.044-.82-.84-.82-.84-1.993V6.473H35.613v18.75zm34.615 1.875q0-.762-.572-1.32-.57-.555-1.352-.555-.78 0-1.352.556-.57.556-.57 1.318 0 .76.57 1.318.57.557 1.352.557.78 0 1.352-.557.57-.557.57-1.318zm3.845 0v12.187q0 .38-.285.66-.286.278-.676.278h-6.73v4.687q0 1.172-.842 1.992-.842.82-2.044.82H34.652q-1.202 0-2.043-.82-.842-.82-.842-1.992v-4.687h-6.73q-.392 0-.677-.28-.284-.277-.284-.658V27.098q0-2.315 1.697-3.97 1.698-1.655 4.072-1.655h1.923V5.535q0-1.172.84-1.992.842-.82 2.044-.82h20.193q1.202 0 2.644.586 1.44.584 2.282 1.405l4.568 4.453q.84.82 1.442 2.226.6 1.407.6 2.58v7.5h1.924q2.374 0 4.072 1.654 1.697 1.655 1.697 3.97z' fill='#fff'/></svg>",
+  "description": "Embed this button in a page or a form to allow user to print it",
+  "custom": true,
+  "type": "widget",
+  "properties": [
+    {
+      "label": "Disabled",
+      "name": "disabled",
+      "type": "boolean",
+      "defaultValue": false,
+      "bond": "expression"
+    },
+    {
+      "label": "Label",
+      "name": "label",
+      "type": "text",
+      "defaultValue": "Print",
+      "bond": "interpolation"
+    },
+    {
+      "label": "Alignment",
+      "name": "alignment",
+      "type": "choice",
+      "defaultValue": "left",
+      "choiceValues": [
+        "left",
+        "center",
+        "right"
+      ],
+      "bond": "constant"
+    },
+    {
+      "label": "Style",
+      "name": "buttonStyle",
+      "type": "choice",
+      "defaultValue": "default",
+      "choiceValues": [
+        "default",
+        "primary",
+        "success",
+        "info",
+        "warning",
+        "danger",
+        "link"
+      ],
+      "bond": "constant"
+    }
+  ],
+  "assets": []
+}
